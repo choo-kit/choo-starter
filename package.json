@@ -1,0 +1,64 @@
+{
+  "private": true,
+  "name": "choo-starter",
+  "version": "0.1.0",
+  "scripts": {
+    "watch": "watchify --fast --verbose -t [ envify --NODE_ENV development ] -t brfs -g [ babelify ] client/app.js -o public/app.js -p errorify -p [ css-extract -o public/app.css ]",
+    "dev": "npm run watch | nodemon ./server",
+    "build": "cross-env NODE_ENV=production browserify -t [ envify --NODE_ENV production ] -t brfs -t unassertify -g [ babelify --presets [ es2015 babili ] ] client/app.js -o public/app.js -p errorify -p [ css-extract -o public/app.css ]",
+    "start": "node ./server"
+  },
+  "browserlist": "> 5%, last 2 firefox versions, last 2 chrome versions, last 2 safari versions, last 2 edge versions, ie 11, not OperaMini all",
+  "browserify": {
+    "transform": [
+      [
+        "sheetify/transform",
+        {
+          "use": [
+            "sheetify-nested",
+            [
+              "sheetify-postcss",
+              {
+                "plugins": [
+                  "autoprefixer"
+                ]
+              }
+            ]
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.1",
+    "browserify": "^14.1.0",
+    "choo": "^5.6.2",
+    "compression": "^1.6.2",
+    "cross-env": "^4.0.0",
+    "envify": "^4.0.0",
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "pino": "^4.2.4",
+    "response": "^0.18.0",
+    "sheetify": "^6.0.1",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "babili": "^0.1.4",
+    "brfs": "^1.4.3",
+    "choo-log": "^6.1.1",
+    "css-extract": "^1.2.0",
+    "errorify": "^0.3.1",
+    "nodemon": "^1.11.0",
+    "sheetify-nested": "^1.0.2",
+    "sheetify-postcss": "^1.1.0",
+    "tachyons": "^4.7.0",
+    "unassertify": "^2.0.4",
+    "watchify": "^3.9.0"
+  }
+}
