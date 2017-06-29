@@ -5,7 +5,7 @@
 - Clone the boilerplate (also available as zip from [here](https://github.com/choo-kit/choo-starter/archive/master.zip))
 
 ```sh
-$ git clone https://github.com/react-boilerplate/react-boilerplate.git
+$ git clone https://github.com/choo-kit/choo-starter.git
 ```
 
 - Install needed dependencies
