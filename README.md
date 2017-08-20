@@ -20,7 +20,7 @@ $ npm install
 $ npm run dev
 ```
 
-## Available Commands
+## Commands
 
 - ``npm run dev`` – *Run development server*
 
